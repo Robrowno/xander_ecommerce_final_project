@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import Error from './pages/Error';
+import SharedLayout from "./pages/SharedLayout";
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Routes >
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="products" element={<h1>Products List Page</h1>} />
+          <Route path="product" element={<h1>Single Product Page</h1>} />
+          <Route path="checkout" element={<h1>Checkout Page</h1>} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="contact" element={<h1>Contact page</h1>} />  
+          <Route path="*" element={<Error />}/>   
+        </Route>
+      </Routes>
+    </BrowserRouter> 
   )
 }
 
