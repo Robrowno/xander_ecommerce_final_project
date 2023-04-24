@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_spectacular',
+    'user',
+    'recipe',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +130,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY = 'pk_test_51N0KjQLB7XNaA4sG3uNLzQuEqkM6nJOpQpmEASo5UEEOEhqT0MFhSkzOxXaVGSe8QNy4VlXDTwvoLIcVZXkmt2NV00J0CeCJ9u'
+STRIPE_SECRET_KEY = 'sk_test_51N0KjQLB7XNaA4sGXE7to4QrrlFzC4qypGNLWxPmp6tzyskDurJQ1Yx93fg0p3LNjyRPHyzQDyFwtFasBK0bPaqS00hgEIG21h'
