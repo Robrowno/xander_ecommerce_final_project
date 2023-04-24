@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home'
 import Profile from './pages/Profile'
+import Products from './pages/Products'
 import Error from './pages/Error';
 import SharedLayout from "./pages/SharedLayout";
 
@@ -14,7 +15,7 @@ function App() {
       <Routes >
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="products" element={<h1>Products List Page</h1>} />
+          <Route path="products" element={<Products />} />
           <Route path="product" element={<h1>Single Product Page</h1>} />
           <Route path="checkout" element={<h1>Checkout Page</h1>} />
           <Route path="profile" element={<Profile />}/>
