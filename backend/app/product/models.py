@@ -44,5 +44,5 @@ class ProductInventory(models.Model):
     """Product inventory model."""
     
     product = models.OneToOneField(ProductDetails, on_delete=models.CASCADE, related_name='inventory')
-    quantity = models.IntegerField(max_length=10)
+    quantity = models.IntegerField()
     

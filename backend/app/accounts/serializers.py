@@ -17,12 +17,26 @@ class UserSerializer(serializers.ModelSerializer):
     """
     User serializer for representing the User model.
     """
-
     profile = UserProfileSerializer()
 
     class Meta:
         model = User
         fields = ('id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'profile')
+
+    def create(self, validated_data):
+        """
+        Create a new user with the provided data.
+        """
+        profile_data = validated_data.pop('profile')
+        user = User.objects.create_user(
+            email=validated_data['email'],
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name'],
+            password=validated_data['password'],
+        )
+        UserProfile.objects.create(user=user, **profile_data)
+        return user
+
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -52,7 +66,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         UserProfile.objects.create(user=user, **profile_data)
         return user
-
 
 class LoginSerializer(serializers.Serializer):
     """
