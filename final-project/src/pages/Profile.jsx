@@ -29,7 +29,7 @@ const Profile = () => {
   };
 
     return (
-      <>
+      <div className="profile-page">
         <article className="profile">            
             <img src="https://placehold.co/130x130"></img>
             <form onSubmit={handleSubmit}>
@@ -71,11 +71,8 @@ const Profile = () => {
                     <h4>Total:</h4>
                 </div>
             </section>
-        </article>       
-        <Link to="/">
-            Home
-        </Link>
-      </>
+        </article> 
+      </div>
     );
   };
   export default Profile;

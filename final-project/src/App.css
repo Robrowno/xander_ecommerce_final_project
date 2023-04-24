@@ -12,6 +12,7 @@
     font-family: var(--text);   
 }
 
+
 .profile {
     font-size: 0.8rem;
     margin: 2rem 0;
@@ -59,7 +60,6 @@
     cursor: pointer;
   }
 
-
 .orders h3 {
     margin-bottom: 1rem;
     text-align: center;
@@ -83,4 +83,24 @@
 
 .order__item--flex li {
     list-style-type: none;
+}
+
+@media screen and (min-width: 750px) {
+    .profile-page {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 400px 400px;
+        grid-template-rows: 120px 200px 200px 150px;
+        justify-content: center;
+    }
+
+    .profile {
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
+    }
+
+    .orders {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
 }
