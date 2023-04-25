@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost&family=Manrope&display=swap');
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+  
+:root {
+    --main-headers: 'Bebas Neue', cursive;
+    --para-leads: 'Jost', sans-serif;
+    --text: 'Manrope', sans-serif;
+}
+
+body {
+    background-color: white;
+    margin:0;
+    padding:0;
+}
+
+
+.hero-image-background {
+    height: 85vh;
+    width: 100vw;
+    /* transform: translateX(-40px); */
+    object-fit:cover;
+}
+
+.homepage-container {
+    position: relative;
+    color: white;
+}
+.hero-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 1rem;
+}
+
+.hero-img img {
+    height: 50%;
+    width: 50%;
+}
+
+.hero-text h1 {
+    font-family: var(--para-leads);
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.btn-shop-now {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 50px;
+    color:white;
+    font-family: var(--heading-font);
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.carousel-paragraph p {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.carousel-paragraph img {
+    display: block;
+    margin: 0 auto;
+}
+
+.collection {
+    color: black;
+    padding: 1rem
+}
+
+.card-collection {
+    margin: 1rem 0;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #E3E3E3;
+}
+
+.product-card img {
+    height: 60%;
+    width: 60%;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+.btn-view-item {
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.product-card p {
+    margin-top: 0.5rem;
+}
+
+.additional-info {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    
+}
+.additional-info img {
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.additional-info-text {
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+}
+
+.additional-info-text h2 {
+    margin: 1rem 0;
+}
+
+.additional-info-text p {
+    margin: 2rem 0;
+}
+
+.btn-learn-more {
+    display: block;
+    margin: 2rem auto 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #2D2C2C;
+}
+/* 
+section {
+    position: relative;
+    z-index: 100;
+    background: transparent;
+    margin: 150px 150px;
+
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+h1{
+    position: absolute;
+    z-index: 100;
+    color: white;
+    font-family: var(--heading-font);
+    font-size: 50px;
+    margin: 10px 150px;
+    font-weight: 200;
+}
+
+.hero {
+    display:flex;
+}
+
+.hero-img{
+    margin-left: 15rem;
+
+}
+
+
+.product-image img{
+    height: 50vh;
+    width:26vw;
+}
+
+
+.product-name{
+    color: gray;
+}
+
+
+.hero-text {
+    width:28rem;
+}
+
+
+
+.intro-text{
+    font-family: var(--tertiary-text);
+    font-size: 16px;
+    font-weight:40;
+    margin-top: 10px;
+    color:white;
+    line-height: 180%;
+
+}
+
+section button{
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 50px;
+    color:white;
+    font-family: var(--heading-font);
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+h2 {
+    position: relative;
+    font-family: var(--paragraph-heading);
+    font-size: 45px;
+    font-weight:40;
+    z-index: 100;
+    color:white;
+}
+
+.collection {
+    margin-top: 20rem;
+}
+
+.card-collection {
+    display:flex;
+}
+
+.product-card{
+    display: flex;
+    flex-direction: column;
+}
+
+.collection h2{
+    text-align: center;
+    color:black;
+    font-family: var(--heading-font);
+}
+
+.card-image img{
+    width: 50px;
+    height: 70px;
+}
+
+ */

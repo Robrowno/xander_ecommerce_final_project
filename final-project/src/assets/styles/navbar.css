@@ -1,0 +1,23 @@
+.nav-container {
+    /* position: absolute; */
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    width: 90vw;
+    justify-content: space-between;
+       
+}
+
+.nav-container h1 {
+    font-family: var(--main-headers);
+    color: black;
+    letter-spacing: 2px;
+    /* color: white; */
+}
+
+.nav-links {
+    font-family: var(--para-leads);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
