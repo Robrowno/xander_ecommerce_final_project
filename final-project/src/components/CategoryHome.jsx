@@ -1,7 +1,7 @@
 import '../assets/styles/categoryHome.css'
 
-const CategoryHome = () => {
-    return (
+const CategoryHome = (props) => {
+    return (       
         <div className='products-card-home-container'>
             <div className="products-card-home">
                 <img src="src/assets/images/bg-home.jpg" alt="" />
@@ -10,7 +10,7 @@ const CategoryHome = () => {
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 </div>
             </div>       
-        </div>
+        </div>      
     )
 }
 

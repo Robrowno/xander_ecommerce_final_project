@@ -28,3 +28,18 @@
     bottom: 0;
     text-align: center;
 }
+
+@media screen and (min-width: 750px) {
+    .products-card-home-grid-lg {
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 5px;
+    }
+
+    .categoryHome-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+    }
+}

@@ -3,10 +3,9 @@ import "../assets/styles/homePage.css"
 import Carousel from '../components/Carousel'
 import CategoryHome from "../components/CategoryHome"
 
-const Home = () => {
+const Home = (props) => {
     return (
         <article className='homepage-container'>
-            {/* <h1>Floom</h1> */}
             <img className="hero-image-background" src="src/assets/images/hero-bg.png" alt="Hero gradient background"></img>
             <section className="hero-container">
                 <div className="hero-text">
@@ -27,7 +26,7 @@ const Home = () => {
                 </div>
             </section>
             <section className="collection">
-                <h2>From the Collection</h2>
+                <h2>FROM THE COLLECTION</h2>
                 <div className="card-collection">
                     <article className="product-card">                      
                         <img src="src/assets/images/black-shirt.jpg" alt="Image of a New Balance Shoe"></img>
@@ -39,15 +38,24 @@ const Home = () => {
             </section>
             <section className="home-products-container">
                 <h2>OUR PRODUCTS</h2>
-                <CategoryHome />
-                <CategoryHome />
+                <div className='products-card-home-grid-lg'>
+                    <CategoryHome className="categoryHome-1"/>
+                    <CategoryHome className="categoryHome-2"/>
+                    <CategoryHome className="categoryHome-3"/>
+                    <CategoryHome className="categoryHome-4"/>
+                </div>
             </section>
             <section className="additional-info">
                 <img src="src/assets/images/bg-headphones.jpg" alt="" />
                 <div className="additional-info-text">
-                    <h2>Timeless designs fit for any purpose.</h2>
-                    <p>Neque quisque sollicitudin tempor vestibulum elit taciti. Sagittis tempor consequat turpis. Aenean curae elementum vestibulum dapibus vitae laoreet. Bibendum suspendisse himenaeos malesuada. Nisl taciti si platea dui. Euismod malesuada facilisis duis lobortis aliquet massa. Tincidunt vivamus ac consectetuer molestie pharetra. Sodales pulvinar non habitant.</p>
-                    <button className="btn-learn-more">LEARN MORE</button>
+                    <div className="additional-info-text-left">
+                        <h2>Timeless designs fit for any purpose.</h2>
+                        <p>Neque quisque sollicitudin tempor vestibulum elit taciti. Sagittis tempor consequat turpis. Aenean curae elementum vestibulum dapibus vitae laoreet. Bibendum suspendisse himenaeos malesuada. Nisl taciti si platea dui. Euismod malesuada facilisis duis lobortis aliquet massa. Tincidunt vivamus ac consectetuer molestie pharetra. Sodales pulvinar non habitant.</p>
+                    </div>
+                    <div className="additional-info-text-right">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci beatae inventore consequuntur, optio sed illo.</p>
+                        <button className="btn-learn-more">LEARN MORE</button>
+                    </div>
                 </div>
             </section>
         </article>
