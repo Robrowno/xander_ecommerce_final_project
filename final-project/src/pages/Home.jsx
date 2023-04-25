@@ -1,5 +1,6 @@
-{/*import Navbar from 'src/components/Navbar'*/ }
+import Navbar from '../components/Navbar'
 import "../assets/styles/home.css"
+import Carousel from '../components/Carousel'
 
 const Home = () => {
     return (
@@ -25,6 +26,7 @@ const Home = () => {
                         <button type="button" className="btn">SHOP NOW</button>
                     </div>
                 </div>
+                {/*<Carousel />*/}
                 <div className="hero-img">
                     <div className="product-name">
                         <p>New Balance Casa Blanca 327</p>
@@ -36,14 +38,33 @@ const Home = () => {
             </section>
             <section className="collection">
                 <h2>From the Collection</h2>
-                <article className="product-card">
-                    <div className="card-image">
-                        <img src="src/assets/images/new_balance_shoe" alt="Image of a New Balance Shoe"></img>
-                    </div>
-                    <div className="card-description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>
-                    </div>
-                </article>
+                <div className="card-collection">
+                    <article className="product-card">
+                        <div className="card-image">
+                            <img src="src/assets/images/new_balance_shoe.jpg" alt="Image of a New Balance Shoe"></img>
+                        </div>
+                        <div className="card-description">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>
+                        </div>
+                    </article>
+                    <article className="product-card">
+                        <div className="card-image">
+                            <img src="src/assets/images/new_balance_shoe.jpg" alt="Image of a New Balance Shoe"></img>
+                        </div>
+                        <div className="card-description">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>
+                        </div>
+                    </article>
+                    <article className="product-card">
+                        <div className="card-image">
+                            <img src="src/assets/images/new_balance_shoe.jpg" alt="Image of a New Balance Shoe"></img>
+                        </div>
+                        <div className="card-description">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>
+                        </div>
+                    </article>
+                </div>
+                
             </section>
         </>
         
