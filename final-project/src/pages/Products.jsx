@@ -8,12 +8,15 @@ import trainers from '../assets/images/hero-trainers.jpg'
 const Products = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedItem, setSelectedItem] = useState(1);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     async function getCategories() {
         const res = await fetch('/categories.json');
         const data = await res.json();
-        // console.log(data);
+        console.log(data);
         setCategories(data);
     }
     getCategories();
@@ -23,10 +26,30 @@ const Products = () => {
   const handleCategoryChange = (event) => {
     // console.log(event.target.value)
     setSelectedCategory(event.target.value);
+    setSelectedItem(event.target.options.selectedIndex);
   }
+
+  useEffect(() => {
+    async function getProducts(){
+      const response = await fetch('/products.json');
+      const jsonResponse = await response.json();
+      setProducts(jsonResponse);
+      console.log(jsonResponse);
+    }
+    getProducts();
+
+  }, []);
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    const categorizedItems = products.filter( product => product.fields["category"] === Number(selectedItem));
+
+    setFilteredProducts(categorizedItems);
+    console.log(categorizedItems);
+
   };
 
   return (
@@ -49,6 +72,13 @@ const Products = () => {
             <img src={tech} alt="tech" />
             <img src={trainers} alt="trainers" />
         </section>
+        { filteredProducts.map((product) => (
+          <section key={product.pk}>
+            <p>{product.fields["name"]}</p>
+            <p>{product.fields["price"]}</p>
+            <p>{product.fields["rating"]}</p>
+          </section>
+        ))}
     </article>
   );
 }

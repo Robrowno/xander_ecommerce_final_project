@@ -1,6 +1,6 @@
 
 import Navbar from '../components/Navbar'
-import "../assets/styles/home.css"
+//import "../assets/styles/home.css"
 import Carousel from '../components/Carousel'
 
 const Home = () => {
