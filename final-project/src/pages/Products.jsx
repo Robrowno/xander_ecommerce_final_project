@@ -3,17 +3,21 @@ import accessories from '../assets/images/bg-accessories.jpg'
 import clothing from '../assets/images/bg-clothing.jpg'
 import tech from '../assets/images/bg-tech.jpg'
 import trainers from '../assets/images/hero-trainers.jpg'
+import ProductItem from '../components/ProductItem';
 
 
 const Products = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedItem, setSelectedItem] = useState(1);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     async function getCategories() {
         const res = await fetch('/categories.json');
         const data = await res.json();
-        // console.log(data);
+        console.log(data);
         setCategories(data);
     }
     getCategories();
@@ -23,10 +27,30 @@ const Products = () => {
   const handleCategoryChange = (event) => {
     // console.log(event.target.value)
     setSelectedCategory(event.target.value);
+    setSelectedItem(event.target.options.selectedIndex);
   }
+
+  useEffect(() => {
+    async function getProducts(){
+      const response = await fetch('/products.json');
+      const jsonResponse = await response.json();
+      setProducts(jsonResponse);
+      console.log(jsonResponse);
+    }
+    getProducts();
+
+  }, []);
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    const categorizedItems = products.filter( product => product.fields["category"] === Number(selectedItem));
+
+    setFilteredProducts(categorizedItems);
+    console.log(categorizedItems);
+
   };
 
   return (
@@ -49,6 +73,11 @@ const Products = () => {
             <img src={tech} alt="tech" />
             <img src={trainers} alt="trainers" />
         </section>
+        { filteredProducts.map((product) => (
+          <ProductItem key={product.pk} img={product.fields["image_url"]} alt={product.fields["name"]} name={product.fields["name"]}
+          price={product.fields["price"]} rating={product.fields["rating"]} description={product.fields["description"]} />
+        
+        ))}
     </article>
   );
 }
