@@ -2,8 +2,9 @@
 import "../assets/styles/homePage.css"
 
 
-import Carousel from '../components/Carousel'
+import CardCarousel from '../components/Carousel'
 import CategoryHome from "../components/CategoryHome"
+
 
 
 
@@ -36,14 +37,7 @@ const Home = () => {
             </section>
             <section className="collection">
                 <h2>From the Collection</h2>
-                <div className="card-collection">
-                    <article className="product-card">                      
-                        <img src="src/assets/images/black-shirt.jpg" alt="Image of a New Balance Shoe"></img>
-                        <h3>Adidas Shock Energy Tee</h3>  
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>                       
-                        <button className="btn-view-item">VIEW ITEM</button>
-                    </article>
-                </div>       
+                <CardCarousel />
             </section>
             <section className="home-products-container">
                 <h2>OUR PRODUCTS</h2>
