@@ -6,7 +6,7 @@ import Products from './pages/Products'
 import Error from './pages/Error';
 import SharedLayout from "./pages/SharedLayout";
 
-import './App.css'
+import './assets/styles/profileProducts.css'
 
 function App() {
 
