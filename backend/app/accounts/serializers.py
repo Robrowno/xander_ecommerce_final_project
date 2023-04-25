@@ -56,7 +56,7 @@ class UserSerializer(serializers.ModelSerializer):
         instance.is_staff = validated_data.get('is_staff', instance.is_staff)
         instance.save()
 
-        # Update user profile
+        # Update user profile now handles the PUT and PATCH endpoints
         profile_data = validated_data.get('profile')
         if profile_data:
             profile = instance.profile
@@ -97,6 +97,7 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError('Both email and password must be provided.')
 
         return data
+
 
 
 
