@@ -8,6 +8,8 @@ from .models import Product, Tag
 class AllProducts(APIView):
     """View to list all products in the system."""
     
+    authentication_classes = []
+    
     def get(self, request):
         """Return a list of all products."""
         
@@ -15,6 +17,8 @@ class AllProducts(APIView):
     
 class IndividualProduct(APIView):
     """View for handling individual products."""
+    
+    authentication_classes = []
     
     def get(self, request, pk):
         """Return a single product."""
@@ -39,6 +43,8 @@ class IndividualProduct(APIView):
 class AllCategories(APIView):
     """View to list all categories in the system."""
     
+    authentication_classes = []
+    
     def get(self, request):
         """Return a list of all categories."""
         
@@ -46,6 +52,8 @@ class AllCategories(APIView):
 
 class CategoryProducts(APIView):
     """View for handling products by category."""
+    
+    authentication_classes = []
     
     def get(self, request, pk):
         """Return a list of products by category."""

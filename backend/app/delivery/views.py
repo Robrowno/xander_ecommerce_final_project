@@ -8,6 +8,8 @@ from django.shortcuts import render
 class AllShipments(APIView):
     """View to list all shipments in the system."""
     
+    authentication_classes = []
+    
     def get(self, request):
         """Return a list of all shipments."""
         
@@ -15,6 +17,8 @@ class AllShipments(APIView):
     
 class IndividualShipment(APIView):
     """View for handling individual shipments."""
+    
+    authentication_classes = []
     
     def get(self, request, pk):
         """Return a single shipment."""
@@ -40,6 +44,8 @@ class IndividualShipment(APIView):
 class AllShipmentLineItems(APIView):
     """View to list all shipment line items in the system."""
     
+    authentication_classes = []
+    
     def get(self, request):
         """Return a list of all shipment line items."""
         
@@ -47,6 +53,8 @@ class AllShipmentLineItems(APIView):
     
 class IndividualShipmentLineItem(APIView):
     """View for handling individual shipment line items."""
+    
+    authentication_classes = []
     
     def get(self, request, pk):
         """Return a single shipment line item."""
