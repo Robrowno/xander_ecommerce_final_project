@@ -5,8 +5,11 @@ import Profile from './pages/Profile'
 import Products from './pages/Products'
 import Error from './pages/Error';
 import SharedLayout from "./pages/SharedLayout";
-
+import CheckoutPage from './pages/Checkout';
 import './assets/styles/profileProducts.css'
+import ContactPage from './pages/Contact';
+
+
 
 function App() {
 
@@ -17,9 +20,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
           <Route path="product" element={<h1>Single Product Page</h1>} />
-          <Route path="checkout" element={<h1>Checkout Page</h1>} />
+          <Route path="checkout" element={<CheckoutPage/>} />
           <Route path="profile" element={<Profile />}/>
-          <Route path="contact" element={<h1>Contact page</h1>} />  
+          <Route path="contact" element={<ContactPage />} />  
           <Route path="*" element={<Error />}/>   
         </Route>
       </Routes>
