@@ -9,7 +9,7 @@ class Product(models.Model):
     
     sku = models.CharField(max_length=50)
     name = models.CharField(max_length=255)
-    tags = models.ManyToManyField('Tag')
+    tags = models.ManyToManyField('Tag', null = True, blank = True)
     description = models.TextField()
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     inventory_count = models.IntegerField(default=0)
@@ -23,4 +23,3 @@ class Tag(models.Model):
     
     name = models.CharField(max_length=255)
     friendly_name = models.CharField(max_length=255, null=True, blank=True)
-    
