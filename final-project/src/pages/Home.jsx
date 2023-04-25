@@ -5,7 +5,13 @@ import "../assets/styles/homePage.css"
 import Carousel from '../components/Carousel'
 import CategoryHome from "../components/CategoryHome"
 
+
+
 const Home = () => {
+    const imageUrl = [{ id:1, image: "bg-home.jpg", description: "Image of sofa for homeware category"},
+    {id:2, image:"bg-accessories.jpg", description: "Image of wearable accessories for accessories category"},
+    {id:3, image:"bg-tech.jpg", description:"Image of tech gadgets for technology category"},
+    {id:4, image:"bg-clothing.jpg", description:"Image of clothing for clothing category"}]
     return (
         <article className='homepage-container'>
             {/* <h1>Floom</h1> */}
@@ -41,8 +47,11 @@ const Home = () => {
             </section>
             <section className="home-products-container">
                 <h2>OUR PRODUCTS</h2>
-                <CategoryHome />
-                <CategoryHome />
+                {imageUrl.map((imageItem) => (
+                    <CategoryHome key={imageItem['id']} item={imageItem['image']} desc={imageItem['description']}/>)
+                    
+                )}
+                {/* Added a more dynamic method to retrieve category details to display on homepage */}
             </section>
             <section className="additional-info">
                 <img src="src/assets/images/bg-headphones.jpg" alt="" />
