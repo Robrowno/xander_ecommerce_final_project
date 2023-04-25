@@ -18,7 +18,6 @@ class Product(models.Model):
     image_url = models.CharField(max_length=255, null=True)
     rating = models.DecimalField(max_digits=2, decimal_places=1, null=True)
     
-    
 class Tag(models.Model):
     """Tags model."""
     
