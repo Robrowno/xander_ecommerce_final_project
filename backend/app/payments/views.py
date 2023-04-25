@@ -6,11 +6,8 @@ from .models import Payment
 from .forms import PaymentForm
 import stripe
 import json
-from app import stripe_config
+from app.stripe_config import stripe
 from stripe.error import CardError, RateLimitError, InvalidRequestError, AuthenticationError, APIConnectionError, StripeError
-
-
-stripe.api_key = 'sk_test_51N0KjQLB7XNaA4sGXE7to4QrrlFzC4qypGNLWxPmp6tzyskDurJQ1Yx93fg0p3LNjyRPHyzQDyFwtFasBK0bPaqS00hgEIG21h'
 
 
 def process_payment(request):
@@ -72,3 +69,7 @@ def create_payment_intent(request):
             return JsonResponse({'error': str(e)})
     else:
         return JsonResponse({'error': 'Invalid request method'})
+    
+
+def success_page(request):
+    return render(request, 'payments/success_page.html')
