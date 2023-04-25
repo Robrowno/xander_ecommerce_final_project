@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost&family=Manrope&display=swap');
 
 *,
@@ -8,37 +7,104 @@
   margin: 0;
   padding: 0;
 }
-
   
+:root {
+    --main-headers: 'Bebas Neue', cursive;
+    --para-leads: 'Jost', sans-serif;
+    --text: 'Manrope', sans-serif;
+}
 
-:root{
-    --heading-font: 'Bebas Neue', san-serif;
-    --paragraph-heading: 'Jost', san-serif;
-    --tertiary-text: 'Manrope', san-serif;
+body {
+    background-color: white;
+    margin:0;
+    padding:0;
+}
+
+
+.hero-image-background {
+    height: 85vh;
+    width: 100vw;
+    /* transform: translateX(-40px); */
+    object-fit:cover;
 
 }
 
-.container{
+.homepage-container {
     position: relative;
-    z-index: 100;
+    color: white;
+}
+.hero-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 1rem;
 }
 
-img {
-    height:110vh;
-    width: 238vh;
-    position:absolute;
-    z-index: 1;
-    transform: translateX(-135px);
+.hero-img img {
+    height: 50%;
+    width: 50%;
 }
 
-nav {
-    position:absolute;
-    z-index: 100;
-    background: transparent;
-    
+.hero-text h1 {
+    font-family: var(--para-leads);
+    margin: 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 400;
 }
 
-section{
+.btn-shop-now {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 50px;
+    color:white;
+    font-family: var(--heading-font);
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.carousel-paragraph p {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.carousel-paragraph img {
+    display: block;
+    margin: 0 auto;
+}
+
+.collection {
+    color: black;
+    padding: 1rem
+}
+
+.card-collection {
+    margin: 1rem 0;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #E3E3E3;
+}
+
+.product-card img {
+    height: 60%;
+    width: 60%;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+.btn-view-item {
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.product-card p {
+    margin-top: 0.5rem;
+}
+/* 
+section {
     position: relative;
     z-index: 100;
     background: transparent;
@@ -146,11 +212,4 @@ h2 {
     height: 70px;
 }
 
-
-
-body {
-    background-color: white;
-    margin:0;
-    padding:0;
-    overflow-x: hidden;
-}
+ */

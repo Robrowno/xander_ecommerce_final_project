@@ -21,7 +21,7 @@ const Products = () => {
 
 
   const handleCategoryChange = (event) => {
-    // console.log(event.target.value)
+    console.log(event.target.value)
     setSelectedCategory(event.target.value);
   }
 

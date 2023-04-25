@@ -1,0 +1,15 @@
+.footer {
+    color: white;
+    text-align: center;
+    background-color: #2D2C2C;
+    padding: 1rem
+}
+
+.footer-icon {
+    margin: 0.5rem 1rem;
+}
+
+.footer-address-container {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}

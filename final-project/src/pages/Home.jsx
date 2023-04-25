@@ -1,73 +1,42 @@
 
-import Navbar from '../components/Navbar'
-import "../assets/styles/home.css"
+import "../assets/styles/homePage.css"
 import Carousel from '../components/Carousel'
 
 const Home = () => {
     return (
-        <>
-            <h1>Floom</h1>
-            <img src="src/assets/images/hero-bg.png" alt="Hero gradient background"></img>
-            <nav className="container">
-                <ul>
-                    <li>Home</li>
-                    <li>Our Products</li>
-                    <li>Contact Us</li>
-                </ul>
-            </nav>
-            
-            <section className="hero">
+        <article className='homepage-container'>
+            {/* <h1>Floom</h1> */}
+            <img className="hero-image-background" src="src/assets/images/hero-bg.png" alt="Hero gradient background"></img>
+            <section className="hero-container">
                 <div className="hero-text">
                     <div className="heading">
-                        <h2>Great style with</h2>
-                        <h2>a bad attitude.</h2>
+                        <h1>Great style with a bad attitude.</h1>
                     </div>
                     <div className="text">
-                        <p className="intro-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper. Sed sollicitudin nunc id est vestibulum gravida. Nullam nibh odio, imperdiet sed massa finibus, eleifend faucibus tellus. Morbi dapibus dolor sed lorem lacinia, et placerat ex pellentesque. </p>
-                        <button type="button" className="btn">SHOP NOW</button>
+                        <p className="intro-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea magni ab nisi voluptas amet labore modi optio velit voluptatem mollitia.</p>
+                        <button type="button" className="btn-shop-now">SHOP NOW</button>
                     </div>
                 </div>
                 {/*<Carousel />*/}
                 <div className="hero-img">
-                    <div className="product-name">
+                    <div className="carousel-paragraph">
                         <p>New Balance Casa Blanca 327</p>
-                    </div>
-                    <div className="product-image">
                         <img src="src/assets/images/hero-trainers.jpg" alt="Image of New Balance Shoes"></img>
-                    </div>
+                    </div>                    
                 </div>
             </section>
             <section className="collection">
                 <h2>From the Collection</h2>
                 <div className="card-collection">
-                    <article className="product-card">
-                        <div className="card-image">
-                            <img src="src/assets/images/new_balance_shoe.jpg" alt="Image of a New Balance Shoe"></img>
-                        </div>
-                        <div className="card-description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>
-                        </div>
+                    <article className="product-card">                      
+                        <img src="src/assets/images/black-shirt.jpg" alt="Image of a New Balance Shoe"></img>
+                        <h3>Adidas Shock Energy Tee</h3>  
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>                       
+                        <button className="btn-view-item">VIEW ITEM</button>
                     </article>
-                    <article className="product-card">
-                        <div className="card-image">
-                            <img src="src/assets/images/new_balance_shoe.jpg" alt="Image of a New Balance Shoe"></img>
-                        </div>
-                        <div className="card-description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>
-                        </div>
-                    </article>
-                    <article className="product-card">
-                        <div className="card-image">
-                            <img src="src/assets/images/new_balance_shoe.jpg" alt="Image of a New Balance Shoe"></img>
-                        </div>
-                        <div className="card-description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>
-                        </div>
-                    </article>
-                </div>
-                
+                </div>       
             </section>
-        </>
+        </article>
         
     )
 }
