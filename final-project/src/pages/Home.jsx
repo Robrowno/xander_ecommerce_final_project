@@ -1,6 +1,7 @@
 
 import "../assets/styles/homePage.css"
 import Carousel from '../components/Carousel'
+import CategoryHome from "../components/CategoryHome"
 
 const Home = () => {
     return (
@@ -35,6 +36,14 @@ const Home = () => {
                         <button className="btn-view-item">VIEW ITEM</button>
                     </article>
                 </div>       
+            </section>
+            <section className="home-products-container">
+                <h2>OUR PRODUCTS</h2>
+                <CategoryHome />
+                <CategoryHome />
+            </section>
+            <section>
+                
             </section>
         </article>
         

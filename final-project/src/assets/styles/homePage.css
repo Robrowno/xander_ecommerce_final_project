@@ -26,7 +26,6 @@ body {
     width: 100vw;
     /* transform: translateX(-40px); */
     object-fit:cover;
-
 }
 
 .homepage-container {
@@ -47,7 +46,7 @@ body {
 
 .hero-text h1 {
     font-family: var(--para-leads);
-    margin: 1rem 0;
+    margin: 2rem 0 1rem 0;
     font-size: 1.8rem;
     font-weight: 400;
 }
@@ -103,6 +102,7 @@ body {
 .product-card p {
     margin-top: 0.5rem;
 }
+
 /* 
 section {
     position: relative;

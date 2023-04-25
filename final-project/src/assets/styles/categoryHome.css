@@ -1,0 +1,30 @@
+.home-products-container {
+    background-color: #2D2C2C;
+    padding: 1rem 0 1rem 0;
+}
+
+
+.home-products-container h2 {
+    font-family: var(--main-headers);
+    text-align: center;
+}
+
+.products-card-home {
+    margin: 1rem auto;
+    position: relative;
+    height: 250px;
+    width: 250px;
+}
+
+.products-card-home img {
+    height: 250px;
+    width: 250px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.card-text-home {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
