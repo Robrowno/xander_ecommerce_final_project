@@ -6,5 +6,6 @@ from product import views
 # app_name = 'user'
 
 urlpatterns = [
-    path('', views.ProductList.as_view(), name='product_list'),
+    # path('', views.ProductList.as_view(), name='product_list'),
+    path('categories/', views.Categories.as_view(), name='product_list'),
 ]
