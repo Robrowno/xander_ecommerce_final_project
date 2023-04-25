@@ -2,10 +2,16 @@
 import "../assets/styles/homePage.css"
 
 
-import Carousel from '../components/Carousel'
+import CardCarousel from '../components/Carousel'
 import CategoryHome from "../components/CategoryHome"
 
-const Home = (props) => {
+
+const Home = () => {
+    const imageUrl = [{ id:1, image: "bg-home.jpg", description: "Image of sofa for homeware category"},
+    {id:2, image:"bg-accessories.jpg", description: "Image of wearable accessories for accessories category"},
+    {id:3, image:"bg-tech.jpg", description:"Image of tech gadgets for technology category"},
+    {id:4, image:"bg-clothing.jpg", description:"Image of clothing for clothing category"}]
+
     return (
         <article className='homepage-container'>
             <img className="hero-image-background" src="src/assets/images/hero-bg.png" alt="Hero gradient background"></img>
@@ -28,24 +34,17 @@ const Home = (props) => {
                 </div>
             </section>
             <section className="collection">
-                <h2>FROM THE COLLECTION</h2>
-                <div className="card-collection">
-                    <article className="product-card">                      
-                        <img src="src/assets/images/black-shirt.jpg" alt="Image of a New Balance Shoe"></img>
-                        <h3>Adidas Shock Energy Tee</h3>  
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie ullamcorper semper.</p>                       
-                        <button className="btn-view-item">VIEW ITEM</button>
-                    </article>
-                </div>       
+                <h2>From the Collection</h2>
+                <CardCarousel />
             </section>
             <section className="home-products-container">
                 <h2>OUR PRODUCTS</h2>
-                <div className='products-card-home-grid-lg'>
-                    <CategoryHome className="categoryHome-1"/>
-                    <CategoryHome className="categoryHome-2"/>
-                    <CategoryHome className="categoryHome-3"/>
-                    <CategoryHome className="categoryHome-4"/>
-                </div>
+                {imageUrl.map((imageItem) => (
+                    <CategoryHome key={imageItem['id']} item={imageItem['image']} desc={imageItem['description']}/>)
+                    
+                )}
+                {/* Added a more dynamic method to retrieve category details to display on homepage */}
+
             </section>
             <section className="additional-info">
                 <img src="src/assets/images/bg-headphones.jpg" alt="" />
