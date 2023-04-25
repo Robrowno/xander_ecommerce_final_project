@@ -3,19 +3,28 @@
 from django.db import models
 
 # Create your models here.
-class Delivery(models.Model):
-    """Delivery model."""
+class Shipment(models.Model):
+    """Shipment model."""
     
-    carrier = models.CharField(max_length=255)
-    tracking_number = models.CharField(max_length=255)
-    shipping_address = models.CharField(max_length=255) # TODO Tie to addresses later.
-    shipment_date = models.DateTimeField(auto_now=True)
-    shipment_cost = models.DecimalField(max_digits=10, decimal_places=2)
-    updated_at = models.DateTimeField(auto_now=True)
+    shipment_number = models.CharField(max_length=255)
+    user_profile = models.ForeignKey('accounts.User', on_delete=models.CASCADE, related_name='shipments')
+    customer_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+    street_address1 = models.CharField(max_length=255)
+    street_address2 = models.CharField(max_length=255)
+    town_or_city = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
+    postcode = models.CharField(max_length=255)
+    delivery_cost = models.DecimalField(max_digits=10, decimal_places=2)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2)
+    order_date = models.DateTimeField(auto_now=True)
     
-class DeliveryPriority(models.Model):
-    """Delivery priority model."""
+class ShipmentLineItem(models.Model):
+    """Shipment line item model."""
     
-    delivery = models.ForeignKey(Delivery, on_delete=models.CASCADE, related_name='priority')
-    priority = models.CharField(max_length=255)
-    updated_at = models.DateTimeField(auto_now=True)
+    product = models.ForeignKey('product.Product', on_delete=models.CASCADE, related_name='shipment_line_items')
+    product_size = models.CharField(max_length=255)
+    shipment = models.ForeignKey(Shipment, on_delete=models.CASCADE, related_name='shipment_line_items')
+    quantity = models.IntegerField()
+    retail_price = models.DecimalField(max_digits=10, decimal_places=2)
