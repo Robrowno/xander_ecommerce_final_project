@@ -103,6 +103,41 @@ body {
     margin-top: 0.5rem;
 }
 
+.additional-info {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    
+}
+.additional-info img {
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.additional-info-text {
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+}
+
+.additional-info-text h2 {
+    margin: 1rem 0;
+}
+
+.additional-info-text p {
+    margin: 2rem 0;
+}
+
+.btn-learn-more {
+    display: block;
+    margin: 2rem auto 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #2D2C2C;
+}
 /* 
 section {
     position: relative;

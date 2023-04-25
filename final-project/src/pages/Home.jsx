@@ -42,8 +42,13 @@ const Home = () => {
                 <CategoryHome />
                 <CategoryHome />
             </section>
-            <section>
-                
+            <section className="additional-info">
+                <img src="src/assets/images/bg-headphones.jpg" alt="" />
+                <div className="additional-info-text">
+                    <h2>Timeless designs fit for any purpose.</h2>
+                    <p>Neque quisque sollicitudin tempor vestibulum elit taciti. Sagittis tempor consequat turpis. Aenean curae elementum vestibulum dapibus vitae laoreet. Bibendum suspendisse himenaeos malesuada. Nisl taciti si platea dui. Euismod malesuada facilisis duis lobortis aliquet massa. Tincidunt vivamus ac consectetuer molestie pharetra. Sodales pulvinar non habitant.</p>
+                    <button className="btn-learn-more">LEARN MORE</button>
+                </div>
             </section>
         </article>
         
