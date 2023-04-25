@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'delivery',
     'product',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware', 
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -150,3 +152,6 @@ REST_FRAMEWORK = {
 
 #authorize account models
 AUTH_USER_MODEL = 'accounts.User'
+
+STRIPE_PUBLIC_KEY = 'pk_test_51N0KjQLB7XNaA4sG3uNLzQuEqkM6nJOpQpmEASo5UEEOEhqT0MFhSkzOxXaVGSe8QNy4VlXDTwvoLIcVZXkmt2NV00J0CeCJ9u'
+STRIPE_SECRET_KEY = 'sk_test_51N0KjQLB7XNaA4sGXE7to4QrrlFzC4qypGNLWxPmp6tzyskDurJQ1Yx93fg0p3LNjyRPHyzQDyFwtFasBK0bPaqS00hgEIG21h'
