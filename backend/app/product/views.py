@@ -1,37 +1,37 @@
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Product, Tag
-from .serializers import ProductSerializer
-
 from django.shortcuts import render
+from .models import Product
 
 # Create your views here.
-class ProductList(generics.ListCreateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-
-class Categories(APIView):
-    """Handles requests for categories"""
+class AllProducts(APIView):
+    """View to list all products in the system."""
     
     def get(self, request):
-        """Handles GET requests
+        """Return a list of all products."""
         
-        Get all categories"""
+        return Response(Product.objects.all())
+    
+class IndividualProduct(APIView):
+    """View for handling individual products."""
+    
+    def get(self, request, pk):
+        """Return a single product."""
         
-        products = Tag.objects.all()
-        serializer = ProductSerializer(products, many=True)
-        return Response(serializer.data)
+        return Response(Product.objects.get(pk=pk))
     
     def post(self, request):
-        """Handles POST requests
+        """Create a new product."""
         
-        Add a new category"""
-        
-        serializer = ProductSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        else:
-            return Response(serializer.errors, status=400)
+        return Response(Product.objects.create(request.data))
     
+    def put(self, request, pk):
+        """Update a product."""
+        
+        return Response(Product.objects.update(request.data))
+    
+    def delete(self, request, pk):
+        """Delete a product."""
+        
+        return Response(Product.objects.delete(pk=pk))
