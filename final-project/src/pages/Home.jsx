@@ -1,5 +1,7 @@
 
 import "../assets/styles/homePage.css"
+
+
 import Carousel from '../components/Carousel'
 import CategoryHome from "../components/CategoryHome"
 
