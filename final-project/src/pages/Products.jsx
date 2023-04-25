@@ -3,6 +3,7 @@ import accessories from '../assets/images/bg-accessories.jpg'
 import clothing from '../assets/images/bg-clothing.jpg'
 import tech from '../assets/images/bg-tech.jpg'
 import trainers from '../assets/images/hero-trainers.jpg'
+import ProductItem from '../components/ProductItem';
 
 
 const Products = () => {
@@ -73,11 +74,9 @@ const Products = () => {
             <img src={trainers} alt="trainers" />
         </section>
         { filteredProducts.map((product) => (
-          <section key={product.pk}>
-            <p>{product.fields["name"]}</p>
-            <p>{product.fields["price"]}</p>
-            <p>{product.fields["rating"]}</p>
-          </section>
+          <ProductItem key={product.pk} img={product.fields["image_url"]} alt={product.fields["name"]} name={product.fields["name"]}
+          price={product.fields["price"]} rating={product.fields["rating"]} description={product.fields["description"]} />
+        
         ))}
     </article>
   );
