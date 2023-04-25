@@ -4,8 +4,7 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Error from './pages/Error';
 import SharedLayout from "./pages/SharedLayout";
-
-import './App.css'
+import './App.css';
 
 function App() {
 
