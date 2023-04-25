@@ -35,3 +35,26 @@ class IndividualProduct(APIView):
         """Delete a product."""
         
         return Response(Product.objects.delete(pk=pk))
+
+class CategoryProducts(APIView):
+    """View for handling products by category."""
+    
+    def get(self, request, pk):
+        """Return a list of products by category."""
+        
+        return Response(Product.objects.filter(category=pk))
+    
+    def post(self, request):
+        """Create a new product."""
+        
+        return Response(Product.objects.create(request.data))
+    
+    def put(self, request, pk):
+        """Update a product."""
+        
+        return Response(Product.objects.update(request.data))
+    
+    def delete(self, request, pk):
+        """Delete a product."""
+        
+        return Response(Product.objects.delete(pk=pk))
