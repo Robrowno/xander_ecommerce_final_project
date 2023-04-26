@@ -1,4 +1,5 @@
 from django.test import TestCase
+<<<<<<< HEAD
 from django.contrib.auth import get_user_model
 from .models import UserProfile
 
@@ -67,3 +68,7 @@ class UserProfileModelTest(TestCase):
         self.assertEqual(self.profile.user, self.user)
         self.assertEqual(self.profile.address, '123 Test St')
         self.assertEqual(self.profile.phone_number, '1234567890')
+=======
+
+# Create your tests here.
+>>>>>>> backend
