@@ -13,14 +13,15 @@
 }
 
 
+
 .profile {
     font-size: 0.8rem;
-    margin: 2rem 0;
+    /* margin: 2rem 0; */
 }
 
-.products {
+/* .products {
     margin-top: 4rem;
-}
+} */
 
 .profile img {
     display: block;
@@ -30,7 +31,7 @@
 
 .profile form, .product-form {
     background-color: #F5F5F5;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     border-radius: 15px;
     padding: 1rem;
     position: relative;

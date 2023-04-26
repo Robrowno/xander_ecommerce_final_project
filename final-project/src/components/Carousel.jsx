@@ -1,64 +1,53 @@
-import { useState } from "react"
-const Carousel = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Card from './Card';
+import { useState, useEffect } from 'react';
 
-    const photos = [
-        {
-          id: 'p1',
-          title: 'Photo One',
-          url: 'https://www.kindacode.com/wp-content/uploads/2022/08/1.png',
-        },
-        {
-          id: 'p2',
-          title: 'Photo Two',
-          url: 'https://www.kindacode.com/wp-content/uploads/2022/08/2.png',
-        },
-        {
-          id: 'p3',
-          title: 'Photo Three',
-          url: 'https://www.kindacode.com/wp-content/uploads/2022/08/3.jpg',
-        },
-        {
-          id: 'p4',
-          title: 'Photo Four',
-          url: 'https://www.kindacode.com/wp-content/uploads/2022/08/4.jpg',
-        },
-      ];
+
+const CardCarousel = () => {
+  const [products, setProducts] = useState([]);
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 1400 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 1400, min: 768 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
+  useEffect(() => {
+    async function getProducts(){
+      const response = await fetch('/products.json');
+      const jsonResponse = await response.json();
+      setProducts(jsonResponse);
+    }
+    getProducts();
+
+  }, []);
+
+  
+
+  return (
+    <Carousel responsive={responsive} showDots={true}>
+      {products.map((product) => (
+        <Card key={product.pk} image={product.fields['image_url']} title={product.fields['name']} description={product.fields['description']}/>
+      ))
+
+      }
       
-
-    const next = () => {
-        currentIndex > photos.length - 1 ? setCurrentIndex(0) : setCurrentIndex(currentIndex + 1);
-    }
-
-    const prev = () => {
-        currentIndex < 0 ? setCurrentIndex(photos.length - 1) : setCurrentIndex(currentIndex - 1);
-    }
-
-    return (
-        <>
-            <div className='slider-container'>
-                {photos.map((photo) => {
-                    <div
-                    key={photo.id}
-        
-                    // if the photo is the current photo, show it
-                    className={
-                      photos[currentIndex].id === photo.id ? 'fade' : 'slide fade'
-                    }
-                  >
-                    <img src={photo.url} alt={photo.title} className='photo' />
-                    <div className='caption'>{photo.title}</div>
-                  </div>
-                })}
-            </div>
-            <button onClick={prev} className="prev">&lt</button>
-            <div>
-                <img src="src/assets/images/jeans.jpg" style={{ width: '200px', height: '300px'}}></img>
-            </div>
-            <button onClick={next} className="next">&gt</button>
-
-        </>
-    )
+    </Carousel>
+  )
 }
 
-export default Carousel;
+export default CardCarousel;
