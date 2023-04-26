@@ -48,7 +48,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-lg-third-col">
-              <h3>Contact Us</h3>
+              <Link to="contact"><h3>Contact Us</h3></Link>
             </div>
             <div className="footer-lg-fourth-col">
               <h3>Where Can You Find Us?</h3>

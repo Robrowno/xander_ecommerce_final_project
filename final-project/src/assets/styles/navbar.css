@@ -6,7 +6,8 @@
     margin: 1rem;
     width: 90vw;
     justify-content: space-between;
-       
+    position: fixed;
+    top: 0;
 }
 
 .nav-container h1 {
@@ -20,4 +21,19 @@
     font-family: var(--para-leads);
     font-size: 0.8rem;
     text-decoration: none;
+    color: black;
+}
+
+.shopping-cart-icon {
+    cursor: pointer;
+}
+
+.shopping-cart-icon:hover {
+    color: rgb(254, 250, 250);
+}
+
+@media screen and (min-width:750px) {
+    .nav-container h1 {
+        margin-left: 10rem;
+    }
 }
