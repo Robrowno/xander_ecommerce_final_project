@@ -5,9 +5,11 @@ import { useState } from "react";
 const Profile = () => {
     
   const [formData, setFormData] = useState({
-    name: "",
+    fname: "",
+    lastname: "",
     email: "",
     password: "",
+    phonenumber: "",
     address: "",
     city: "",
     country: "",
@@ -34,12 +36,16 @@ const Profile = () => {
             <img src="https://placehold.co/130x130"></img>
             <form onSubmit={handleSubmit}>
                 <FaPen className="profile__icon"/>
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" name="name" onChange={handleChange} value={formData.name}/>
+                <label htmlFor="fname">First Name</label>
+                <input type="text" id="fname" name="fname" onChange={handleChange} value={formData.fname}/>
+                <label htmlFor="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" onChange={handleChange} value={formData.lastname}/>
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" name="email" onChange={handleChange} value={formData.email}/>
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" onChange={handleChange} value={formData.password}/>
+                <label htmlFor="phonenumber">Phone Number</label>
+                <input type="phonenumber" id="phonenumber" name="phonenumber" onChange={handleChange} value={formData.phonenumber}/>
                 <label htmlFor="address">Address</label>
                 <input type="text" id="address" name="address" onChange={handleChange} value={formData.address}/>
                 <label htmlFor="city">City</label>

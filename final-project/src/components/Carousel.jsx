@@ -36,16 +36,13 @@ const CardCarousel = () => {
 
   }, []);
 
-  
-
   return (
-    <Carousel responsive={responsive} showDots={true}>
+    <Carousel responsive={responsive}>
       {products.map((product) => (
-        <Card key={product.pk} image={product.fields['image_url']} title={product.fields['name']} description={product.fields['description']}/>
+        <Card key={product.pk} image={product.fields['image_url']} title={product.fields['name']}/>
       ))
-
       }
-      
+        
     </Carousel>
   )
 }
