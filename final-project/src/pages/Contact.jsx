@@ -2,53 +2,58 @@ import '../assets/styles/contact.css'
 import React, { useState } from "react";
 
 function ContactPage() {
-    // Initialise the input states as empty strings
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false); // added state for submission status
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // handle form submission logic here
     console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
-    // clear form fields
     setName("");
     setEmail("");
     setMessage("");
+    setSubmitted(true); // set submission status to true after form is submitted
   };
-    // Returns a contact form
+
   return (
     <article className='contact-page-container'>
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        Email:
-        <input
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-      </label>
-      <br />
-      <label>
-        Message:
-        <textarea
-        style={{width:'403px', height:'411px'}}
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-        />
-      </label>
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+      {submitted ? (
+        <p className="success-message">
+          Thanks for contacting us - we'll get back to you as soon as we can.
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Email:
+            <input
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Message:
+            <textarea
+              style={{ width: "403px", height: "411px" }}
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
+            />
+          </label>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      )}
     </article>
   );
 }

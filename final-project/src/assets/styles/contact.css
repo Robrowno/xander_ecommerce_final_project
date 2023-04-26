@@ -42,3 +42,11 @@ form {
     background-color: #0069d9;
   }
   
+/* CSS styles for the success message */
+.success-message {
+  background-color: lightgreen;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
