@@ -2,11 +2,13 @@ from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import render
-from .models import Product
+from .models import Product, Tag
 
 # Create your views here.
 class AllProducts(APIView):
     """View to list all products in the system."""
+    
+    authentication_classes = []
     
     def get(self, request):
         """Return a list of all products."""
@@ -15,6 +17,8 @@ class AllProducts(APIView):
     
 class IndividualProduct(APIView):
     """View for handling individual products."""
+    
+    authentication_classes = []
     
     def get(self, request, pk):
         """Return a single product."""
@@ -35,9 +39,21 @@ class IndividualProduct(APIView):
         """Delete a product."""
         
         return Response(Product.objects.delete(pk=pk))
+    
+class AllCategories(APIView):
+    """View to list all categories in the system."""
+    
+    authentication_classes = []
+    
+    def get(self, request):
+        """Return a list of all categories."""
+        
+        return Response(Tag.objects.all())
 
 class CategoryProducts(APIView):
     """View for handling products by category."""
+    
+    authentication_classes = []
     
     def get(self, request, pk):
         """Return a list of products by category."""
