@@ -1,10 +1,10 @@
 import '../assets/styles/categoryHome.css'
 
 const CategoryHome = (props) => {
-    const {item, desc} = props;
+    const {id, item, desc} = props;
     
     return (
-        <div className='products-card-home-container'>
+        <div className={`products-card-home-container-${id}`}>
             <div className="products-card-home">
                 <img src={`src/assets/images/${item}`} alt={desc} />{/* Access image attributes through props*/}
                 <div className="card-text-home">
