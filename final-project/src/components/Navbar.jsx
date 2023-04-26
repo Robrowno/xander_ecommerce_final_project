@@ -8,7 +8,8 @@ const Navbar = () => {
           <h1>FLOOM</h1>
           <Link to="/" className="nav-links">HOME</Link>
           <Link to="products" className="nav-links">OUR PRODUCTS</Link>
-          <Link to="profile" className="nav-links">PROFILE</Link>
+          <Link to="profile" className="nav-links">PROFILE</Link>    
+          <Link to="login" className="nav-links">LOGIN</Link>
           <FaShoppingCart className="shopping-cart-icon"/>
         </nav>
       );
