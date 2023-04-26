@@ -73,11 +73,14 @@ const Products = () => {
             <img src={tech} alt="tech" />
             <img src={trainers} alt="trainers" />
         </section>
-        { filteredProducts.map((product) => (
-          <ProductItem key={product.pk} img={product.fields["image_url"]} alt={product.fields["name"]} name={product.fields["name"]}
-          price={product.fields["price"]} rating={product.fields["rating"]} description={product.fields["description"]} />
+        <section className="product-container">
+          { filteredProducts.map((product) => (
+            <ProductItem key={product.pk} img={product.fields["image_url"]} alt={product.fields["name"]} name={product.fields["name"]}
+            price={product.fields["price"]} rating={product.fields["rating"]} description={product.fields["description"]} />
+          
+          ))}
+        </section>
         
-        ))}
     </article>
   );
 }
