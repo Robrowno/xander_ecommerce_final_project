@@ -5,6 +5,8 @@ import Profile from './pages/Profile'
 import Products from './pages/Products'
 import Error from './pages/Error';
 import SharedLayout from "./pages/SharedLayout";
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import Checkout from './pages/Checkout';
 import SingleProduct from "./pages/SingleProduct"
 import './assets/styles/profileProducts.css'
@@ -24,7 +26,10 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="product" element={<SingleProduct />} />
           <Route path="profile" element={<Profile />}/>
-          <Route path="contact" element={<ContactPage />} />  
+          <Route path="contact" element={<h1>Contact page</h1>} /> 
+          <Route path="login" element={<LoginPage/>} /> 
+          <Route path="register" element={<RegisterPage/>} />
+          <Route path="contact" element={<ContactPage />} /> 
           <Route path="*" element={<Error />}/>   
         </Route>
       </Routes>
