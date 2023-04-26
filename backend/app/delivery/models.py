@@ -1,14 +1,17 @@
 """Delivery models."""
 
 from django.db import models
+from product.models import Product
+from accounts.models import User
 
 # Create your models here.
 class Shipment(models.Model):
     """Shipment model."""
     
     shipment_number = models.CharField(max_length=255)
-    user_profile = models.ForeignKey('accounts.User', on_delete=models.CASCADE, related_name='shipments')
+    user_profile = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shipments')
     customer_name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     street_address1 = models.CharField(max_length=255)
     street_address2 = models.CharField(max_length=255)
@@ -23,7 +26,7 @@ class Shipment(models.Model):
 class ShipmentLineItem(models.Model):
     """Shipment line item model."""
     
-    product = models.ForeignKey('product.Product', on_delete=models.CASCADE, related_name='shipment_line_items')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='shipment_line_items')
     product_size = models.CharField(max_length=255)
     shipment = models.ForeignKey(Shipment, on_delete=models.CASCADE, related_name='shipment_line_items')
     quantity = models.IntegerField()

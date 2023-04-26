@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.contrib.auth import authenticate
 from rest_framework import generics, permissions, status
 from rest_framework.authtoken.models import Token
@@ -111,8 +110,7 @@ class UserProfileDetailView(generics.RetrieveUpdateAPIView):
         Get the current authenticated user's profile.
         """
         return self.request.user.profile
-=======
+
 from django.shortcuts import render
 
 # Create your views here.
->>>>>>> backend

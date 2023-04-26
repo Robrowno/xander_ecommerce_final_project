@@ -1,76 +1,24 @@
-from rest_framework import generics
-from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.shortcuts import render
 from .models import Product, Tag
+from .serializers import ProductSerializer
+from rest_framework.permissions import AllowAny
+from rest_framework.decorators import permission_classes, authentication_classes
+from rest_framework import status
 
 # Create your views here.
-class AllProducts(APIView):
-    """View to list all products in the system."""
-    
-    authentication_classes = []
-    
-    def get(self, request):
-        """Return a list of all products."""
-        
-        return Response(Product.objects.all())
-    
-class IndividualProduct(APIView):
-    """View for handling individual products."""
-    
-    authentication_classes = []
-    
-    def get(self, request, pk):
-        """Return a single product."""
-        
-        return Response(Product.objects.get(pk=pk))
-    
-    def post(self, request):
-        """Create a new product."""
-        
-        return Response(Product.objects.create(request.data))
-    
-    def put(self, request, pk):
-        """Update a product."""
-        
-        return Response(Product.objects.update(request.data))
-    
-    def delete(self, request, pk):
-        """Delete a product."""
-        
-        return Response(Product.objects.delete(pk=pk))
-    
-class AllCategories(APIView):
-    """View to list all categories in the system."""
-    
-    authentication_classes = []
-    
-    def get(self, request):
-        """Return a list of all categories."""
-        
-        return Response(Tag.objects.all())
+@api_view(['GET', 'POST'])
+@permission_classes([AllowAny])
+@authentication_classes([])
+def hello_world(request):
+    if request.method == 'POST':
+        serializer = ProductSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class CategoryProducts(APIView):
-    """View for handling products by category."""
-    
-    authentication_classes = []
-    
-    def get(self, request, pk):
-        """Return a list of products by category."""
-        
-        return Response(Product.objects.filter(category=pk))
-    
-    def post(self, request):
-        """Create a new product."""
-        
-        return Response(Product.objects.create(request.data))
-    
-    def put(self, request, pk):
-        """Update a product."""
-        
-        return Response(Product.objects.update(request.data))
-    
-    def delete(self, request, pk):
-        """Delete a product."""
-        
-        return Response(Product.objects.delete(pk=pk))
+    if request.method == 'GET':
+        products = Product.objects.all()
+        serializer = ProductSerializer(products, many=True)
+        return Response({'data': serializer.data, 'message': 'Hello, world!'})
