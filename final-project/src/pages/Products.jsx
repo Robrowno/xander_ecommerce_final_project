@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import accessories from '../assets/images/bg-accessories.jpg'
 import clothing from '../assets/images/bg-clothing.jpg'
-import tech from '../assets/images/bg-tech.jpg'
 import trainers from '../assets/images/hero-trainers.jpg'
 import ProductItem from '../components/ProductItem';
 
@@ -41,8 +40,6 @@ const Products = () => {
 
   }, []);
 
-  
-
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -67,12 +64,11 @@ const Products = () => {
                 <input type="submit" value="Search"/>
             </form>
         </section>
-        <section className='products-img'>
+        {/* <section className='products-img'>
             <img src={accessories} alt="accessories"></img>
             <img src={clothing} alt="clothing" />
-            <img src={tech} alt="tech" />
             <img src={trainers} alt="trainers" />
-        </section>
+        </section> */}
         <section className="product-container">
           { filteredProducts.map((product) => (
             <ProductItem key={product.pk} img={product.fields["image_url"]} alt={product.fields["name"]} name={product.fields["name"]}

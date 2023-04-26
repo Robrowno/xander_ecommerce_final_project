@@ -1,4 +1,3 @@
-
 import "../assets/styles/homePage.css"
 
 
@@ -7,7 +6,10 @@ import CategoryHome from "../components/CategoryHome"
 
 
 const Home = () => {
-    
+    const imageUrl = [{ id: 1, grid:"item-grid-1", image: "bg-home.jpg", description: "Image of sofa for homeware category"},
+    {id: 2, grid:"item-grid-2", image:"bg-accessories.jpg", description: "Image of wearable accessories for accessories category"},
+    {id: 3, grid:"item-grid-3", image:"bg-tech.jpg", description:"Image of tech gadgets for technology category"},
+    {id: 4, grid:"item-grid-4", image:"bg-clothing.jpg", description:"Image of clothing for clothing category"}]
 
     return (
         <article className='homepage-container'>
@@ -34,41 +36,17 @@ const Home = () => {
                 <h2>From the Collection</h2>
                 <CardCarousel />
             </section>
-            {/* const imageUrl = [{ id:1, image: "bg-home.jpg", description: "Image of sofa for homeware category"},
-    {id:2, image:"bg-accessories.jpg", description: "Image of wearable accessories for accessories category"},
-    {id:3, image:"bg-tech.jpg", description:"Image of tech gadgets for technology category"},
-    {id:4, image:"bg-clothing.jpg", description:"Image of clothing for clothing category"}] */}
             <section className="home-products-container">
                 <h2>OUR PRODUCTS</h2>
-                <div className={'products-card-home-container-1'}>
-                    <div className={'products-card-home-1'}>
-                        <img src={'src/assets/images/bg-home.jpg'} alt="Image of sofa for homeware category" />
-                        <div className="card-text-home">
-                            <h3>Houseware</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className={'products-card-home-container-2'}>
-                    <div className={'products-card-home-2'}>
-                        <img src={'src/assets/images/bg-accessories.jpg'} alt="Image of wearable accessories for accessories category" />
-                        <div className="card-text-home">
-                            <h3>Houseware</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div className={'products-card-home-container-3'}>
-                    <div className={'products-card-home-3'}>
-                        <img src={'src/assets/images/bg-tech.jpg'} alt="Image of wearable accessories for accessories category" />
-                        <div className="card-text-home">
-                            <h3>Houseware</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-                
+                <div className="home-products-grid-lg">
+                {imageUrl.map((imageItem) => (
+                    <CategoryHome key={imageItem['id']} id={imageItem['id']} item={imageItem['image']} desc={imageItem['description']}/>)
+                    
+                )}
                 {/* Added a more dynamic method to retrieve category details to display on homepage */}
+                </div>
+
+
             </section>
             <section className="additional-info">
                 <img src="src/assets/images/bg-headphones.jpg" alt="" />

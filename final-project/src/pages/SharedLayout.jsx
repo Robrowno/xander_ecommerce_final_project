@@ -6,8 +6,8 @@ const SharedLayout = () => {
   return (
     <>
       <Navbar />
-      <section>
-        <Outlet />
+      <section className="main-container-pages"> 
+          <Outlet />
       </section>
       <Footer />
     </>
