@@ -16,7 +16,7 @@ function ContactPage() {
     setEmail("");
     setMessage("");
   };
-
+    // Returns a contact form
   return (
     <article className='contact-page-container'>
     <form onSubmit={handleSubmit}>

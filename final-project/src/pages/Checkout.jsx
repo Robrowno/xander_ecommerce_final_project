@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CardElement, useStripe, useElements, Elements } from "@stripe/react-stripe-js";
+import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements, Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 const CheckoutForm = () => {
@@ -14,13 +14,16 @@ const CheckoutForm = () => {
       return;
     }
 
-    const cardElement = elements.getElement(CardElement);
+    // Get the card number element
+    const cardElement = elements.getElement(CardNumberElement);
 
+    // Create the payment method using Stripe.js
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,
     });
 
+    // Handle any errors or set the success state
     if (error) {
       setPaymentError(error.message);
       setPaymentSuccess(null);
@@ -33,8 +36,16 @@ const CheckoutForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Card details
-        <CardElement options={{}} />
+        Card number
+        <CardNumberElement />
+      </label>
+      <label>
+        Expiration date
+        <CardExpiryElement />
+      </label>
+      <label>
+        CVC
+        <CardCvcElement />
       </label>
       {paymentError && <div>{paymentError}</div>}
       {paymentSuccess && <div>Payment successful: {paymentSuccess}</div>}
@@ -45,7 +56,8 @@ const CheckoutForm = () => {
   );
 };
 
-const stripePromise = loadStripe("sk_test_51N0NdWDWCbvVb2nGVU5CdfniVzZpzqcFWOD31ohdsTzhbnvD84JHM1dCjzIsa1sYrlU2z0AIoWqDoXYSLx3yxme000NqSvKpKZ");
+// Load Stripe.js with your publishable key
+const stripePromise = loadStripe("pk_test_51N0NdWDWCbvVb2nG5jX58zSRbberjFfxNg8mcwBDBvUfGhqMwiIukOoEWPp0WPwy9XKPGAOZNxKbgo38vcDKf5MG00rczGjRhA");
 
 const Checkout = () => {
   return (

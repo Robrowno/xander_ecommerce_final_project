@@ -1,3 +1,4 @@
+/* This rule sets the styles for the form container */
 .checkout-form {
     display: flex;
     flex-direction: column;
@@ -9,12 +10,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
+  /* This rule sets the styles for the form labels */
   .checkout-form label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
   }
   
+  /* This rule sets the styles for the form inputs */
   .checkout-form input[type="text"],
   .checkout-form input[type="email"],
   .checkout-form input[type="number"] {
@@ -26,6 +29,7 @@
     margin-bottom: 20px;
   }
   
+  /* This rule sets the styles for the form submit button */
   .checkout-form button[type="submit"] {
     background-color: #6772e5;
     color: #fff;
@@ -37,10 +41,12 @@
     transition: all 0.2s ease;
   }
   
+  /* This rule sets the styles for the form submit button when hovered */
   .checkout-form button[type="submit"]:hover {
     background-color: #5469d4;
   }
   
+  /* This rule sets the styles for the Stripe element container */
   .checkout-form .StripeElement {
     border: 1px solid #ccc;
     padding: 10px;
@@ -48,10 +54,12 @@
     margin-bottom: 20px;
   }
   
+  /* This rule sets the styles for the Stripe element when focused */
   .checkout-form .StripeElement--focus {
     box-shadow: 0 0 0 2px rgba(103, 114, 229, 0.3);
   }
   
+  /* This rule sets the styles for the Stripe element when invalid */
   .checkout-form .StripeElement--invalid {
     border-color: #fa755a;
   }

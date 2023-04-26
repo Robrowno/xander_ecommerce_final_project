@@ -1,7 +1,9 @@
-
+/* Grey background for the contact form container */
 .contact-page-container {
     background-color: #ccc;
 }
+
+/* Form styling and layout section */
 
 form {
     display: flex;
