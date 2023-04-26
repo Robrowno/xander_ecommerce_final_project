@@ -9,3 +9,10 @@ class DeliverySerializer(serializers.ModelSerializer):
     class Meta:
         model = Shipment
         fields = '__all__'
+        
+class DeliveryLineItemSerializer(serializers.ModelSerializer):
+    """Serializer for Delivery Line Item model."""
+    
+    class Meta:
+        model = ShipmentLineItem
+        fields = '__all__'
