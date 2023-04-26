@@ -1,12 +1,54 @@
 import React, { useState } from "react";
-import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements, Elements } from "@stripe/react-stripe-js";
+import {
+  CardNumberElement,
+  CardExpiryElement,
+  CardCvcElement,
+  useStripe,
+  useElements,
+  Elements,
+} from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const CheckoutForm = () => {
+// Pass prices and user data as props to the CheckoutForm component
+const CheckoutForm = ({ prices, user }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [paymentError, setPaymentError] = useState(null);
   const [paymentSuccess, setPaymentSuccess] = useState(null);
+
+  const createPaymentIntent = async (amount) => {
+    // Replace this with your Django view URL for creating a payment intent
+    const createPaymentIntentURL = "/create_payment_intent/";
+
+    const response = await fetch(createPaymentIntentURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Include CSRF token if needed
+      },
+      body: JSON.stringify({
+        amount: amount,
+      }),
+    });
+
+    return await response.json();
+  };
+
+  const processPayment = async (paymentData) => {
+    // Replace this with your Django view URL for processing a payment
+    const processPaymentURL = "/process_payment/";
+
+    const response = await fetch(processPaymentURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Include CSRF token if needed
+      },
+      body: JSON.stringify(paymentData),
+    });
+
+    return await response.json();
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,18 +65,50 @@ const CheckoutForm = () => {
       card: cardElement,
     });
 
-    // Handle any errors or set the success state
     if (error) {
       setPaymentError(error.message);
       setPaymentSuccess(null);
+      return;
+    }
+
+
+    // Replace the hardcoded amount with the actual price from the props
+    const amount = prices.total;
+
+    // Create a payment intent
+    const data = await createPaymentIntent(amount);
+    const clientSecret = data.clientSecret;
+
+    // Confirm the card payment
+    const result = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: paymentMethod.id,
+    });
+
+    if (result.error) {
+      setPaymentError(result.error.message);
+      setPaymentSuccess(null);
     } else {
-      setPaymentSuccess(paymentMethod.id);
-      setPaymentError(null);
+    const paymentData = {
+      stripe_token: result.paymentIntent.id,
+      email: user.email, // Replace the hardcoded email with the actual user email from the props
+      payment_intent_id: result.paymentIntent.id,
+    };
+
+// Send the payment data to the Django backend for processing
+      const paymentResponse = await processPayment(paymentData);
+
+      if (paymentResponse.error) {
+        setPaymentError(paymentResponse.error);
+        setPaymentSuccess(null);
+      } else {
+        setPaymentSuccess(paymentMethod.id);
+        setPaymentError(null);
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} method="POST">
       <label>
         Card number
         <CardNumberElement />
@@ -46,7 +120,7 @@ const CheckoutForm = () => {
       <label>
         CVC
         <CardCvcElement />
-      </label>
+       </label>
       {paymentError && <div>{paymentError}</div>}
       {paymentSuccess && <div>Payment successful: {paymentSuccess}</div>}
       <button type="submit" disabled={!stripe}>
@@ -57,14 +131,16 @@ const CheckoutForm = () => {
 };
 
 // Load Stripe.js with your publishable key
-const stripePromise = loadStripe("pk_test_51N0NdWDWCbvVb2nG5jX58zSRbberjFfxNg8mcwBDBvUfGhqMwiIukOoEWPp0WPwy9XKPGAOZNxKbgo38vcDKf5MG00rczGjRhA");
+const stripePromise = loadStripe("pk_test_51N0KjQLB7XNaA4sG3uNLzQuEqkM6nJOpQpmEASo5UEEOEhqT0MFhSkzOxXaVGSe8QNy4VlXDTwvoLIcVZXkmt2NV00J0CeCJ9u");
 
-const Checkout = () => {
+const Checkout = (props) => {
   return (
+    // Pass prices and user data as props to the CheckoutForm component
     <Elements stripe={stripePromise}>
-      <CheckoutForm />
+      <CheckoutForm prices={props.prices} user={props.user} />
     </Elements>
   );
 };
 
 export default Checkout;
+
