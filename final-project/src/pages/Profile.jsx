@@ -4,6 +4,8 @@ import { useState } from "react";
 
 const Profile = () => {
     
+  const [inputStatusDisabled, setinputStatusDisabled] = useState(true);
+
   const [formData, setFormData] = useState({
     fname: "",
     lastname: "",
@@ -30,30 +32,36 @@ const Profile = () => {
     });
   };
 
+  const handleClick = () => {
+    setinputStatusDisabled(false);
+  }
+
     return (
       <div className="profile-page">
         <article className="profile">            
             <img src="https://placehold.co/130x130"></img>
             <form onSubmit={handleSubmit}>
-                <FaPen className="profile__icon"/>
+                <FaPen className="profile__icon" onClick={handleClick}/>
                 <label htmlFor="fname">First Name</label>
-                <input type="text" id="fname" name="fname" onChange={handleChange} value={formData.fname}/>
+                <input type="text" id="fname" name="fname" onChange={handleChange} value={formData.fname} disabled={inputStatusDisabled}/>
                 <label htmlFor="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" onChange={handleChange} value={formData.lastname}/>
+                <input type="text" id="lastname" name="lastname" onChange={handleChange} value={formData.lastname} disabled={inputStatusDisabled}/>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" onChange={handleChange} value={formData.email}/>
+                <input type="email" id="email" name="email" onChange={handleChange} value={formData.email} disabled={inputStatusDisabled}/>
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" onChange={handleChange} value={formData.password}/>
+                <input type="password" id="password" name="password" onChange={handleChange} value={formData.password} disabled={inputStatusDisabled}/>
                 <label htmlFor="phonenumber">Phone Number</label>
-                <input type="phonenumber" id="phonenumber" name="phonenumber" onChange={handleChange} value={formData.phonenumber}/>
+                <input type="phonenumber" id="phonenumber" name="phonenumber" onChange={handleChange} value={formData.phonenumber} disabled={inputStatusDisabled}/>
                 <label htmlFor="address">Address</label>
-                <input type="text" id="address" name="address" onChange={handleChange} value={formData.address}/>
+                <input type="text" id="address" name="address" onChange={handleChange} value={formData.address} disabled={inputStatusDisabled}/>
                 <label htmlFor="city">City</label>
-                <input type="text" id="city" name="city" onChange={handleChange} value={formData.city}/>
+                <input type="text" id="city" name="city" onChange={handleChange} value={formData.city} disabled={inputStatusDisabled}/>
                 <label htmlFor="country">Country</label>
-                <input type="text" id="country" name="country" onChange={handleChange} value={formData.country}/>
+                <input type="text" id="country" name="country" onChange={handleChange} value={formData.country} disabled={inputStatusDisabled}/>
                 <label htmlFor="postcode">Postcode</label>
-                <input type="text" id="postcode" name="postcode"/>
+                <input type="text" id="postcode" name="postcode" disabled={inputStatusDisabled}/>
+                <label for="myfile">Select an image for your profile:</label>
+                <input type="file" id="myImage" name="myImage" disabled={inputStatusDisabled}></input>
                 <input type="submit" value="Save"></input>
             </form>
         </article>

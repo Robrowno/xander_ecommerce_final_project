@@ -41,9 +41,8 @@ const Home = () => {
                 <h2>OUR PRODUCTS</h2>
                 <div className="home-products-grid-lg">
                 {imageUrl.map((imageItem) => (
-                    <CategoryHome key={imageItem['id']} id={imageItem['id']} item={imageItem['image']} desc={imageItem['description']}/>)
-                    
-                )}
+                    <CategoryHome key={imageItem['id']} id={imageItem['id']} item={imageItem['image']} desc={imageItem['description']}/>)                   
+                )}               
                 {/* Added a more dynamic method to retrieve category details to display on homepage */}
                 </div>
 
