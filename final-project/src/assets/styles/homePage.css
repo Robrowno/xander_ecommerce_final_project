@@ -185,11 +185,6 @@ body {
     .collection {
         text-align: center;    
     }
-/* 
-    .card-collection {
-        width: 35%;
-        margin: 2rem auto;
-    } */
 
     .card-collection {
         margin-top: 3rem;
@@ -228,8 +223,9 @@ body {
     }
 
     .home-products-grid-lg {
+        margin: 2rem 0;
         display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-        grid-template-rows: 400px 400px;  
-    } 
-}
+        grid-template-columns: 300px 300px 300px 300px;
+        justify-content: center; 
+        /* grid-template-rows: 350px 350px;   */
+

@@ -26,7 +26,6 @@ function App() {
           <Route path="/products/product/:id" element={<SingleProduct />} />     
           <Route path="checkout" element={<Checkout />} />
           <Route path="profile" element={<Profile />}/>
-          <Route path="contact" element={<h1>Contact page</h1>} /> 
           <Route path="login" element={<LoginPage/>} /> 
           <Route path="register" element={<RegisterPage/>} />
           <Route path="contact" element={<ContactPage />} />

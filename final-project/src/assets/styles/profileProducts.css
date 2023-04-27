@@ -28,7 +28,7 @@
     border-radius: 50%;
 }
 
-.profile form, .product-form {
+.profile form, .product-form, .login-form, .contact-page-container form {
     background-color: #F5F5F5;
     margin-top: 1rem;
     border-radius: 15px;
@@ -40,6 +40,9 @@
     margin-top: 7rem;
 }
 
+.contact-page-container form {
+    margin-top: 4rem;
+}
 /* .products-img img {
     height: 130px;
     width: 200px;
@@ -61,7 +64,7 @@
 }
 
 
-.product-display{
+.product-display {
     background-color: rgb(241, 232, 232);
     text-align: center;
     padding: 1rem;
@@ -96,7 +99,7 @@
     right: 10px;
 }
 
-.profile input {
+.profile input, .login-form input, .contact-page-container input {
     width: 100%;
     padding: 8px 10px;
     margin: 6px 0;
@@ -106,7 +109,7 @@
     box-sizing: border-box;
   }
 
-.profile input[type=submit], .product-form input[type=submit] {
+.profile input[type=submit], .product-form input[type=submit], .login-form button, .contact-page-container button, .error-home-btn {
     width: 100%;
     background: rgb(206,63,218);
     background: linear-gradient(273deg, rgba(206,63,218,1) 0%, rgba(255,167,35,0.4206932773109243) 100%);
@@ -118,6 +121,9 @@
     cursor: pointer;
   }
 
+.error-home-btn {
+    width: 10rem;
+}
 .orders h3 {
     margin-bottom: 1rem;
     text-align: center;
@@ -149,7 +155,7 @@
         display: grid;
         gap: 1rem;
         grid-template-columns: 400px 400px;
-        grid-template-rows: 166px 142px 300px 300px;
+        grid-template-rows: 166px 142px 300px 350px;
         justify-content: center;
     }
 
