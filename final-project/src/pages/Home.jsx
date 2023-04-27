@@ -1,7 +1,6 @@
 
 import "../assets/styles/homePage.css"
 
-
 import CardCarousel from '../components/Carousel'
 import CategoryHome from "../components/CategoryHome"
 
