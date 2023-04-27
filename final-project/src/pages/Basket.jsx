@@ -15,14 +15,12 @@ const Basket = () => {
 
   return (
     <table>
-      {cartItems.forEach((cartItem) => (
-        <tr key={cartItem.id}>
-          <td><img src={cartItem.image_url} alt={cartItem.name} /></td>
-          <td>{cartItem.name}</td>
-          <td>{cartItem.price}</td>
+        <tr key={cartItems.id}>
+          <td><img src={cartItems.image_url} alt={cartItems.name} /></td>
+          <td>{cartItems.name}</td>
+          <td>{cartItems.price}</td>
           <td>{cartItem.quantity}</td>
         </tr>
-      ))}
     </table>
   );
 };
