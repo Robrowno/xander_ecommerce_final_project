@@ -11,6 +11,7 @@ import Checkout from './pages/Checkout';
 import SingleProduct from "./pages/SingleProduct"
 import './assets/styles/profileProducts.css'
 import ContactPage from './pages/Contact';
+import Basket from './pages/Basket';
 
 
 
@@ -22,12 +23,13 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
-          <Route path="/products/product" element={<SingleProduct />} />     
+          <Route path="/products/product/:id" element={<SingleProduct />} />     
           <Route path="checkout" element={<Checkout />} />
           <Route path="profile" element={<Profile />}/>
           <Route path="login" element={<LoginPage/>} /> 
           <Route path="register" element={<RegisterPage/>} />
-          <Route path="contact" element={<ContactPage />} /> 
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="cart" element={<Basket />} /> 
           <Route path="*" element={<Error />}/>   
         </Route>
       </Routes>

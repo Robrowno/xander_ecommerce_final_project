@@ -46,7 +46,7 @@ const Products = () => {
     const categorizedItems = products.filter( product => product.fields["category"] === Number(selectedItem));
 
     setFilteredProducts(categorizedItems);
-    console.log(categorizedItems);
+    console.log(filteredProducts);
 
   };
 
@@ -71,7 +71,7 @@ const Products = () => {
         </section> */}
         <section className="product-container">
           { filteredProducts.map((product) => (
-            <ProductItem key={product.pk} img={product.fields["image_url"]} alt={product.fields["name"]} name={product.fields["name"]}
+            <ProductItem key={product.pk} id={product.pk} product_id={product.pk} img={product.fields["image_url"]} alt={product.fields["name"]} name={product.fields["name"]}
             price={product.fields["price"]} rating={product.fields["rating"]} description={product.fields["description"]} />
           
           ))}
