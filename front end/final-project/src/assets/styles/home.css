@@ -1,0 +1,155 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost&family=Manrope&display=swap');
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+  
+
+:root{
+    --heading-font: 'Bebas Neue', san-serif;
+    --paragraph-heading: 'Jost', san-serif;
+    --tertiary-text: 'Manrope', san-serif;
+
+}
+
+.container{
+    position: relative;
+    z-index: 100;
+}
+
+img {
+    height:110vh;
+    width: 238vh;
+    position:absolute;
+    z-index: 1;
+    transform: translateX(-135px);
+}
+
+nav {
+    position:absolute;
+    z-index: 100;
+    background: transparent;
+    
+}
+
+section{
+    position: relative;
+    z-index: 100;
+    background: transparent;
+    margin: 150px 150px;
+
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+h1{
+    position: absolute;
+    z-index: 100;
+    color: white;
+    font-family: var(--heading-font);
+    font-size: 50px;
+    margin: 10px 150px;
+    font-weight: 200;
+}
+
+.hero {
+    display:flex;
+}
+
+.hero-img{
+    margin-left: 15rem;
+
+}
+
+
+.product-image img{
+    height: 50vh;
+    width:26vw;
+}
+
+
+.product-name{
+    color: gray;
+}
+
+
+.hero-text {
+    width:28rem;
+}
+
+
+
+.intro-text{
+    font-family: var(--tertiary-text);
+    font-size: 16px;
+    font-weight:40;
+    margin-top: 10px;
+    color:white;
+    line-height: 180%;
+
+}
+
+section button{
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 50px;
+    color:white;
+    font-family: var(--heading-font);
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+h2 {
+    position: relative;
+    font-family: var(--paragraph-heading);
+    font-size: 45px;
+    font-weight:40;
+    z-index: 100;
+    color:white;
+}
+
+.collection {
+    margin-top: 20rem;
+}
+
+.card-collection {
+    display:flex;
+}
+
+.product-card{
+    display: flex;
+    flex-direction: column;
+}
+
+.collection h2{
+    text-align: center;
+    color:black;
+    font-family: var(--heading-font);
+}
+
+.card-image img{
+    width: 50px;
+    height: 70px;
+}
+
+
+body {
+    background-color: white;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+}

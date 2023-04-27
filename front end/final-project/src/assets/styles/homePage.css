@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost&family=Manrope&display=swap');
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+  
+:root {
+    --main-headers: 'Bebas Neue', cursive;
+    --para-leads: 'Jost', sans-serif;
+    --text: 'Manrope', sans-serif;
+}
+
+body {
+    background-color: white;
+    margin:0;
+    padding:0;
+}
+
+.main-container-pages {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* #content-page-wrap {
+    padding-bottom: 13rem;
+} */
+
+.hero-image-background {
+    height: 90vh;
+    width: 100vw;
+    /* transform: translateX(-40px); */
+    object-fit: cover;
+}
+
+.homepage-container {
+    position: relative;
+    color: white;
+}
+.hero-container {
+    /* max-width: 700px; */
+    /* width: 90%; */
+    margin-top: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 1rem;
+}
+
+.hero-img img {
+    height: 50%;
+    width: 50%;
+}
+
+.hero-text h1 {
+    font-family: var(--para-leads);
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.btn-shop-now {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px 50px;
+    color:white;
+    font-family: var(--heading-font);
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.carousel-paragraph p {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.carousel-paragraph img {
+    display: block;
+    margin: 0 auto;
+}
+
+.collection {
+    color: black;
+    padding: 1rem
+}
+
+.card-collection {
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #E3E3E3;
+}
+
+.collection h2 {
+    font-family: var(--main-headers);
+    letter-spacing: 2px;
+}
+
+.product-card img {
+    height: 60%;
+    width: 60%;
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+.btn-view-item {
+    padding: 0.5rem 1.5rem;
+    margin-top: 2rem;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.product-card p {
+    margin-top: 0.5rem;
+}
+
+.additional-info {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    
+}
+.additional-info img {
+    height: 80vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.additional-info-text {
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+}
+
+.additional-info-text h2 {
+    margin: 1rem 0;
+}
+
+.additional-info-text p {
+    margin: 2rem 0;
+}
+
+.btn-learn-more {
+    display: block;
+    margin: 2rem auto 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #2D2C2C;
+}
+
+
+@media screen and (min-width: 750px) {
+
+    .hero-image-background {
+        height: 85vh; 
+        object-fit: fill; 
+    }
+    
+    .hero-container { 
+        margin: 3rem 20% 0 20%;     
+        display: flex;
+        justify-content: space-around;      
+    }
+
+    .hero-text, .hero-img {
+        width: 40%;
+    }
+
+    .carousel-paragraph p {
+        margin: 3rem 0 1rem 0;
+    }   
+
+    .hero-img img {
+        height: 80%;
+        width: 80%;
+    }
+
+    .collection {
+        text-align: center;    
+    }
+
+    .card-collection {
+        margin-top: 3rem;
+        height: 45vh;
+    }
+    .product-card img {
+        height: 60%;
+        width: 60%;
+    }
+
+    .product-card h3 {
+        font-size: 0.7rem;
+    }
+
+    .product-card p {
+        font-size: 0.7rem;
+    }
+
+    .additional-info-text {
+        margin: 0 2rem;
+        display: flex;
+        gap: 20%;
+    }
+
+    .additional-info-text-left {
+        width: 40%;
+    }
+
+    .additional-info-text-right {
+        width: 40%;
+    }
+    
+    .btn-learn-more {
+        display: inline;
+        margin: 0;
+    }
+
+    .home-products-grid-lg {
+        margin: 2rem 0;
+        display: grid;
+        grid-template-columns: 300px 300px 300px 300px;
+        justify-content: center; 
+        /* grid-template-rows: 350px 350px;   */
+
